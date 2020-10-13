@@ -1,0 +1,18 @@
+tensorflow
+scikit-learn
+opencv-contrib-python==4.4.0.42
+scikit-image
+
+How to install those packages?
+Open Terminal and execute the following lines:
+0. Download and install Python and Anaconda
+1. pip install tensorflow
+2. pip install scikit-learn
+3. pip install opencv-contrib-python==4.4.0.42
+4. pip install scikit-image
+
+Import new packages from Spyder:
+import tensorflow
+import cv2
+import scikit-learn
+import scikit-image
