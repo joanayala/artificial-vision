@@ -8,12 +8,11 @@ Created on Tue Oct 13 10:48:26 2020
 import cv2 #OpenCV
 import numpy as np
 import matplotlib.pyplot as plt
-#import matplotlib.pyplot as plt
-#import matplotlib
-#from matplotlib import pyplot as plt
 
-img1 = cv2.imread('images/bananas.jpg')
-#cv2.imshow(':::Image :::', img1) #Image read
+# :::::: ORI IMAGES ::::::
+#img1 = cv2.imread('images/bananas.jpg')
+#img1 = cv2.imread('images/fruta.jpg')
+img1 = cv2.imread('images/lunar_cancer.jpg')
 
 #Operaciones básicas
 pxX = np.size(img1, axis=0) #W
@@ -38,14 +37,21 @@ hsv = cv2.cvtColor(img1,cv2.COLOR_BGR2HSV)
 I = cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
 #cv2.imshow('Img-GRAY', I)
 
-umbral1 = 240
+#umbral1 = 50
 umbral2,_ = cv2.threshold(I,0,255,cv2.THRESH_OTSU)
 binaria = np.uint8((I<umbral2)+255)
 #cv2.imshow('Img-Binary', binaria)
 
 #Histograma
 data = I.flatten()
+red = img1[:,:,0].flatten()
+green = img1[:,:,1].flatten()
+blue = img1[:,:,2].flatten()
+
 plt.hist(data,bins=100)
+plt.hist(red, bins=1000, histtype="stepfilled", color="red")
+plt.hist(green, bins=1000, histtype="stepfilled", color="green")
+plt.hist(blue, bins=1000, histtype="stepfilled", color="blue")
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
