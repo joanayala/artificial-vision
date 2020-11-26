@@ -38,7 +38,7 @@ I = cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
 #cv2.imshow('Img-GRAY', I)
 
 #umbral1 = 50
-umbral2,_ = cv2.threshold(I,0,255,cv2.THRESH_OTSU)
+umbral2,_ = cv2.threshold(I,0,255,cv2.THRESH_OTSU)  
 binaria = np.uint8((I<umbral2)+255)
 #cv2.imshow('Img-Binary', binaria)
 
